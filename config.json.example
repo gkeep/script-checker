@@ -1,0 +1,11 @@
+{
+    "ssh_key": {
+        "path": "/home/dev/.ssh/id_rsa",
+        "password": ""
+    },
+    "machine": {
+      "username": "user",
+      "address": "ya.hr-link.ru",
+      "port": "10058"
+    }
+}

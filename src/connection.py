@@ -7,11 +7,9 @@ from config import Config
 
 class SSHClient:
     client = None
+    cfg = None
 
-    def __init__(self):
-        self.get_connection()
-
-    def get_connection(self):
+    def connect(self, timeout: int = 3):
         cfg = Config()
 
         user = cfg.machine['username']
@@ -20,27 +18,40 @@ class SSHClient:
 
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(
-            hostname=host,
-            port=port,
-            username=user,
-            key_filename=cfg.ssh_key['path'],
-            passphrase=cfg.ssh_key['password']
-        )
+        try:
+            ssh.connect(
+                hostname=host,
+                port=port,
+                username=user,
+                key_filename=cfg.ssh_key['path'],
+                passphrase=cfg.ssh_key['password'],
+                timeout=timeout
+            )
+        except Exception as e:
+            return f'Could not connect - {e}'
 
         self.client = ssh
 
     def test_connection(self):
+        err = self.connect()
+        if err: return err
+
         stdin, stdout, stderr = self.client.exec_command('cat /etc/os-release')
         return stdout.readline().strip()
 
     def put_file(self, file_path: str):
+        err = self.connect()
+        if err: return err
+
         scp = SCPClient(self.client.get_transport())
 
         abs_path = os.path.expanduser(file_path)
         scp.put(abs_path, remote_path="/tmp")
 
     def run_file(self, file_path: str):
+        err = self.connect()
+        if err: return err
+
         out = []
 
         def run_command(command: str):

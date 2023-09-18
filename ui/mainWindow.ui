@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Script-checker</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="settingsButton">
@@ -85,7 +85,7 @@
            <number>5</number>
           </property>
           <item>
-           <widget class="QPushButton" name="testConnectionButton_2">
+           <widget class="QPushButton" name="selectScriptPushButton">
             <property name="text">
              <string>Выбрать скрипт</string>
             </property>

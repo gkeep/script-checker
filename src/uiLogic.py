@@ -52,17 +52,17 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
     def __init__(self, window, cmd_data):
         self.setupUi(window)
         self.data = cmd_data
-        self.checksList.itemClicked.connect(self.list_show_output)
 
         for item in self.data:
             if item["check_type"] != "setup":
                 self.checksList.addItem(f"{item['command']}")
 
+        self.checksList.itemActivated.connect(self.list_show_output)
         self.checksList.setCurrentRow(0)
-        self.list_show_output()
 
     def list_show_output(self):
         item = self.checksList.currentItem().text()
+        self.outputView.clear()
         for check in self.data:
             if check["command"] == item:
                 for line in check["output"]:

@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'mainWindowvsuNXF.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.8
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 from PySide2.QtCore import *  # type: ignore
 from PySide2.QtGui import *  # type: ignore
 from PySide2.QtWidgets import *  # type: ignore
@@ -125,7 +135,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Script-checker", None))
         self.settingsButton.setText(QCoreApplication.translate("MainWindow", u"\u2699\ufe0f", None))
         self.testConnectionButton.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u0441\u0442 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0440\u0438\u043f\u0442", None))

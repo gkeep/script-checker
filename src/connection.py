@@ -56,22 +56,39 @@ class SSHClient:
 
         def run_command(command: str):
             stdin, stdout, stderr = self.client.exec_command(command)
-            _stdout = stdout.readlines()
-            _stderr = stderr.readlines()
-            return {
-                "command": command,
-                "stdout": _stdout,
-                "stderr": _stderr
-            }
+            _stdout, _stderr = list(), list()
+
+            for line in stdout.readlines():
+                if line != "\n":
+                    _stdout.append(line)
+            for line in stderr.readlines():
+                if line != "\n":
+                    _stderr.append(line)
+
+            return _stdout + _stderr
 
         file_name = file_path.split("/")[-1]
         remote_file = "/tmp/" + file_name
 
-        out.append(run_command(f"chmod +x {remote_file}"))
-        out.append(run_command(f"shellcheck {remote_file} --exclude SC2086"))
-        for item in out:
-            if item['stderr'] is None and item['stdout'] is None:
-                out.append(run_command(f"bash -x {remote_file}"))
+        out.append({
+            "check_type": "setup",
+            "command": "chmod +x",
+            "output": run_command(f"chmod +x {remote_file}")
+        })
+        out.append({
+            "check_type": "test",
+            "command": "shellcheck",
+            "output": run_command(f"shellcheck {remote_file}")
+        })
+
+        if out[1]['output'] == []:
+            out.append({
+                "check_type": "run",
+                "command": "run",
+                "output": run_command(f"bash -x {remote_file}")
+            })
+
+        return out
 
 
 def test_connection():

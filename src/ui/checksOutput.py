@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'runOutputSQbJxn.ui'
+## Form generated from reading UI file 'runOutputsDcNNG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -17,7 +17,7 @@ class Ui_scriptCheckWindow(object):
     def setupUi(self, scriptCheckWindow):
         if not scriptCheckWindow.objectName():
             scriptCheckWindow.setObjectName(u"scriptCheckWindow")
-        scriptCheckWindow.resize(939, 535)
+        scriptCheckWindow.resize(1293, 614)
         self.verticalLayout = QVBoxLayout(scriptCheckWindow)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.groupBox = QGroupBox(scriptCheckWindow)
@@ -26,16 +26,19 @@ class Ui_scriptCheckWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.checksList = QListWidget(self.groupBox)
         self.checksList.setObjectName(u"checksList")
-        self.checksList.setMaximumSize(QSize(200, 16777215))
+        self.checksList.setMaximumSize(QSize(250, 16777215))
+        font = QFont()
+        font.setPointSize(11)
+        self.checksList.setFont(font)
         self.checksList.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
 
         self.horizontalLayout.addWidget(self.checksList)
 
         self.outputView = QTextEdit(self.groupBox)
         self.outputView.setObjectName(u"outputView")
-        font = QFont()
-        font.setFamily(u"Monospace")
-        self.outputView.setFont(font)
+        font1 = QFont()
+        font1.setFamily(u"Monospace")
+        self.outputView.setFont(font1)
         self.outputView.setLineWidth(0)
         self.outputView.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.outputView.setUndoRedoEnabled(False)

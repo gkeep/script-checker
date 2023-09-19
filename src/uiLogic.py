@@ -118,7 +118,7 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
     def __init__(self, window, cmd_data):
         self.setupUi(window)
         self.data = cmd_data
-        self.groupBox.setTitle(cmd_data[0]['command'].split(" ")[-1])
+        self.groupBox.setTitle(cmd_data[0]['command'][14:])
 
         for item in self.data:
             if item["check_type"] != "setup":

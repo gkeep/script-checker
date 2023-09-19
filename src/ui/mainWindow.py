@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindowvsuNXF.ui'
+## Form generated from reading UI file 'mainWindowOqETgy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -17,7 +17,14 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(518, 313)
+        MainWindow.resize(520, 315)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QSize(520, 315))
+        MainWindow.setMaximumSize(QSize(520, 315))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.settingsButton = QPushButton(self.centralwidget)
@@ -69,11 +76,11 @@ class Ui_MainWindow(object):
         self.currrentScriptLineEdit.setObjectName(u"currrentScriptLineEdit")
         self.currrentScriptLineEdit.setEnabled(False)
         self.currrentScriptLineEdit.setGeometry(QRect(0, 20, 481, 31))
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.currrentScriptLineEdit.sizePolicy().hasHeightForWidth())
-        self.currrentScriptLineEdit.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.currrentScriptLineEdit.sizePolicy().hasHeightForWidth())
+        self.currrentScriptLineEdit.setSizePolicy(sizePolicy1)
         palette1 = QPalette()
         brush2 = QBrush(QColor(0, 0, 0, 255))
         brush2.setStyle(Qt.SolidPattern)

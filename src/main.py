@@ -2,14 +2,15 @@ from config import Config
 from connection import SSHClient, SCPClient
 import sys
 from PySide2.QtWidgets import QMainWindow, QApplication
-from uiLogic import UI_Main
+from uiLogic import UIMain
 
 if __name__ == '__main__':
-    ssh_client = SSHClient()
+    config = Config()
+    ssh_client = SSHClient(config)
 
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
-    content = UI_Main(MainWindow, ssh_client)
+    content = UIMain(MainWindow, ssh_client, config)
 
     MainWindow.show()
     sys.exit(app.exec_())

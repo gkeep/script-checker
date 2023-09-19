@@ -47,12 +47,13 @@ class UIMain(Ui_MainWindow):
         widget.show()
         widget.exec_()
 
-    @staticmethod
-    def __open_settings():
+    def __open_settings(self):
         widget = QDialog()
         SettingsDialog(widget)
         widget.show()
         widget.exec_()
+
+        self.conf.load_config()
 
     def __test_connection(self):
         output = self.ssh_client.test_connection()
@@ -85,6 +86,8 @@ class SettingsDialog(Ui_settingsDialog):
             lambda: self.__save_field(self.machinePortInputBox.text(), 'machine', 'port'))
 
     def __save_field(self, value, section, field):
+        if value == "":
+            return
         match section:
             case 'machine':
                 self.new_cfg.machine[field] = value

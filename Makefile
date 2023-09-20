@@ -1,9 +1,4 @@
-.PHONY: deps clean build
+.PHONY: deps build
 
 build:
-	make clean
-	python setup.py build
 	pyinstaller -F src/main.py
-
-clean:
-	rm -rf build/*

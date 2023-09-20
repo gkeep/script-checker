@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingsWindowCUhBrz.ui'
+## Form generated from reading UI file 'settingsWindowpoyvZO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.8
 ##
@@ -17,14 +17,14 @@ class Ui_settingsDialog(object):
     def setupUi(self, settingsDialog):
         if not settingsDialog.objectName():
             settingsDialog.setObjectName(u"settingsDialog")
-        settingsDialog.resize(580, 472)
+        settingsDialog.resize(620, 520)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(settingsDialog.sizePolicy().hasHeightForWidth())
         settingsDialog.setSizePolicy(sizePolicy)
-        settingsDialog.setMinimumSize(QSize(580, 470))
-        settingsDialog.setMaximumSize(QSize(580, 472))
+        settingsDialog.setMinimumSize(QSize(620, 520))
+        settingsDialog.setMaximumSize(QSize(620, 520))
         self.verticalLayout = QVBoxLayout(settingsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.groupBox = QGroupBox(settingsDialog)
@@ -84,37 +84,45 @@ class Ui_settingsDialog(object):
 
         self.verticalLayout.addWidget(self.groupBox)
 
-        self.groupBox_2 = QGroupBox(settingsDialog)
-        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.machineSettingsCheckBox = QCheckBox(settingsDialog)
+        self.machineSettingsCheckBox.setObjectName(u"machineSettingsCheckBox")
+
+        self.verticalLayout.addWidget(self.machineSettingsCheckBox)
+
+        self.machineSettingsGroupBox = QGroupBox(settingsDialog)
+        self.machineSettingsGroupBox.setObjectName(u"machineSettingsGroupBox")
+        self.machineSettingsGroupBox.setEnabled(False)
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
-        self.groupBox_2.setSizePolicy(sizePolicy1)
-        self.verticalLayout_3 = QVBoxLayout(self.groupBox_2)
+        sizePolicy1.setHeightForWidth(self.machineSettingsGroupBox.sizePolicy().hasHeightForWidth())
+        self.machineSettingsGroupBox.setSizePolicy(sizePolicy1)
+        self.verticalLayout_3 = QVBoxLayout(self.machineSettingsGroupBox)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.groupBox_5 = QGroupBox(self.groupBox_2)
-        self.groupBox_5.setObjectName(u"groupBox_5")
-        self.horizontalLayout_3 = QHBoxLayout(self.groupBox_5)
+        self.machineUserGroupBox = QGroupBox(self.machineSettingsGroupBox)
+        self.machineUserGroupBox.setObjectName(u"machineUserGroupBox")
+        self.machineUserGroupBox.setEnabled(False)
+        self.horizontalLayout_3 = QHBoxLayout(self.machineUserGroupBox)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.usernameInputBox = QLineEdit(self.groupBox_5)
+        self.usernameInputBox = QLineEdit(self.machineUserGroupBox)
         self.usernameInputBox.setObjectName(u"usernameInputBox")
 
         self.horizontalLayout_3.addWidget(self.usernameInputBox)
 
 
-        self.verticalLayout_3.addWidget(self.groupBox_5)
+        self.verticalLayout_3.addWidget(self.machineUserGroupBox)
 
-        self.groupBox_6 = QGroupBox(self.groupBox_2)
-        self.groupBox_6.setObjectName(u"groupBox_6")
-        self.horizontalLayout_4 = QHBoxLayout(self.groupBox_6)
+        self.machineGroupBox = QGroupBox(self.machineSettingsGroupBox)
+        self.machineGroupBox.setObjectName(u"machineGroupBox")
+        self.machineGroupBox.setEnabled(False)
+        self.horizontalLayout_4 = QHBoxLayout(self.machineGroupBox)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.machineDomainInputBox = QLineEdit(self.groupBox_6)
+        self.machineDomainInputBox = QLineEdit(self.machineGroupBox)
         self.machineDomainInputBox.setObjectName(u"machineDomainInputBox")
 
         self.horizontalLayout_4.addWidget(self.machineDomainInputBox)
 
-        self.machinePortInputBox = QLineEdit(self.groupBox_6)
+        self.machinePortInputBox = QLineEdit(self.machineGroupBox)
         self.machinePortInputBox.setObjectName(u"machinePortInputBox")
         sizePolicy2 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
@@ -125,15 +133,17 @@ class Ui_settingsDialog(object):
         self.horizontalLayout_4.addWidget(self.machinePortInputBox)
 
 
-        self.verticalLayout_3.addWidget(self.groupBox_6)
+        self.verticalLayout_3.addWidget(self.machineGroupBox)
 
 
-        self.verticalLayout.addWidget(self.groupBox_2)
+        self.verticalLayout.addWidget(self.machineSettingsGroupBox)
 
         self.saveButton = QDialogButtonBox(settingsDialog)
         self.saveButton.setObjectName(u"saveButton")
+        self.saveButton.setLocale(QLocale(QLocale.Russian, QLocale.Russia))
         self.saveButton.setOrientation(Qt.Horizontal)
         self.saveButton.setStandardButtons(QDialogButtonBox.Save)
+        self.saveButton.setCenterButtons(True)
 
         self.verticalLayout.addWidget(self.saveButton)
 
@@ -155,14 +165,18 @@ class Ui_settingsDialog(object):
         self.groupBox_4.setTitle(QCoreApplication.translate("settingsDialog", u"\u041f\u0430\u0440\u043e\u043b\u044c \u043a \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u043e\u043c\u0443 \u043a\u043b\u044e\u0447\u0443", None))
         self.passwordInputBox.setPlaceholderText(QCoreApplication.translate("settingsDialog", u"\u0431\u0435\u0437 \u043f\u0430\u0440\u043e\u043b\u044f", None))
         self.passwordWarning.setText(QCoreApplication.translate("settingsDialog", u"\u041f\u0430\u0440\u043e\u043b\u044c \u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f \u0432 plaintext \u0444\u043e\u0440\u043c\u0430\u0442\u0435!!! \u041d\u0438\u043a\u043e\u043c\u0443 \u043d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0439\u0442\u0435 \u0441\u0432\u043e\u0439 config.json!", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("settingsDialog", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u043a \u0432\u0438\u0440\u0442\u0443\u0430\u043b\u044c\u043d\u043e\u0439 \u043c\u0430\u0448\u0438\u043d\u0435", None))
-        self.groupBox_5.setTitle(QCoreApplication.translate("settingsDialog", u"\u0418\u043c\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f", None))
+        self.machineSettingsCheckBox.setText(QCoreApplication.translate("settingsDialog", u"\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f", None))
+        self.machineSettingsGroupBox.setTitle(QCoreApplication.translate("settingsDialog", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u043a \u0432\u0438\u0440\u0442\u0443\u0430\u043b\u044c\u043d\u043e\u0439 \u043c\u0430\u0448\u0438\u043d\u0435", None))
+        self.machineUserGroupBox.setTitle(QCoreApplication.translate("settingsDialog", u"\u0418\u043c\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f", None))
         self.usernameInputBox.setPlaceholderText(QCoreApplication.translate("settingsDialog", u"scriptchecker", None))
-        self.groupBox_6.setTitle(QCoreApplication.translate("settingsDialog", u"IP \u0438\u043b\u0438 \u0434\u043e\u043c\u0435\u043d\u043d\u043e\u0435 \u0438\u043c\u044f \u0432\u0438\u0440\u0442\u0443\u0430\u043b\u044c\u043d\u043e\u0439 \u043c\u0430\u0448\u0438\u043d\u044b", None))
+        self.machineGroupBox.setTitle(QCoreApplication.translate("settingsDialog", u"IP \u0438\u043b\u0438 \u0434\u043e\u043c\u0435\u043d\u043d\u043e\u0435 \u0438\u043c\u044f \u0432\u0438\u0440\u0442\u0443\u0430\u043b\u044c\u043d\u043e\u0439 \u043c\u0430\u0448\u0438\u043d\u044b", None))
 #if QT_CONFIG(tooltip)
         self.machineDomainInputBox.setToolTip(QCoreApplication.translate("settingsDialog", u"<html><head/><body><pre style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'monospace'; background-color:#ffffff;\"><br/></pre></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.machineDomainInputBox.setPlaceholderText(QCoreApplication.translate("settingsDialog", u"ya.hr-link.ru", None))
         self.machinePortInputBox.setPlaceholderText(QCoreApplication.translate("settingsDialog", u"10058", None))
+#if QT_CONFIG(accessibility)
+        self.saveButton.setAccessibleName("")
+#endif // QT_CONFIG(accessibility)
     # retranslateUi
 

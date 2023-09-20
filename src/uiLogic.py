@@ -3,7 +3,7 @@ import pyclip
 from PySide2.QtCore import QRegExp
 from PySide2.QtGui import QRegExpValidator
 
-from PySide2.QtWidgets import QFileDialog, QDialog
+from PySide2.QtWidgets import QDialogButtonBox, QFileDialog, QDialog
 
 from ui.mainWindow import Ui_MainWindow
 from ui.checksOutput import Ui_scriptCheckWindow
@@ -72,9 +72,11 @@ class SettingsDialog(Ui_settingsDialog):
         super().setupUi(window)
 
         self.saveButton.clicked.connect(lambda: self.new_cfg.save_config())
+        self.machineSettingsCheckBox.stateChanged.connect(lambda: self.__enable_machine_settings())
         self.selectPrivateKeyButton.clicked.connect(lambda: self.__select_private_key())
         self.copyPublicKeyButton.clicked.connect(lambda: self.__copy_public_key())
         self.machinePortInputBox.setValidator(QRegExpValidator(QRegExp("\d+")))
+        self.saveButton.button(QDialogButtonBox.Save).setText("Сохранить")
 
         self.passwordInputBox.editingFinished.connect(
             lambda: self.__save_field(self.passwordInputBox.text(), 'ssh_key', 'password'))
@@ -94,6 +96,15 @@ class SettingsDialog(Ui_settingsDialog):
             case 'ssh_key':
                 self.new_cfg.ssh_key[field] = value
 
+    def __enable_machine_settings(self):
+        state = False
+        if self.machineSettingsCheckBox.isChecked():
+            state = True
+
+        self.machineSettingsGroupBox.setEnabled(state)
+        self.machineGroupBox.setEnabled(state)
+        self.machineUserGroupBox.setEnabled(state)
+
     def __select_private_key(self):
         path_to_file = ""
 
@@ -111,10 +122,10 @@ class SettingsDialog(Ui_settingsDialog):
         with open(f"{self.new_cfg.ssh_key['path']}.pub") as file:
             key = file.readlines()
             try:
-                pyclip.copy(key)  # does not work in Wayland for some reason
+                pyclip.copy(key[0])  # requires wl-clipboard
                 self.copyPublicKeyButton.setText("Публичный ключ скопирован!")
             except pyclip.base.ClipboardSetupException:
-                self.copyPublicKeyButton.setText("Не удалось скопировать :(")
+                self.copyPublicKeyButton.setText("Не удалось скопировать, wl-clipboard установлен?")
 
 
 class ScriptCheckWindow(Ui_scriptCheckWindow):

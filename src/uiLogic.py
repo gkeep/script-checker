@@ -122,7 +122,7 @@ class SettingsDialog(Ui_settingsDialog):
         with open(f"{self.new_cfg.ssh_key['path']}.pub") as file:
             key = file.readlines()
             try:
-                pyclip.copy(key[0])  # requires wl-clipboard
+                pyclip.copy(key[0])  # requires wl-clipboard on wayland
                 self.copyPublicKeyButton.setText("Публичный ключ скопирован!")
             except pyclip.base.ClipboardSetupException:
                 self.copyPublicKeyButton.setText("Не удалось скопировать, wl-clipboard установлен?")

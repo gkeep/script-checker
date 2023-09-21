@@ -1,9 +1,6 @@
 name: build & release a tag
 
-on:
-  push:
-    tags:
-      - "v*.*.*"
+on: push
 
 jobs:
   build:

@@ -1,4 +1,4 @@
-.PHONY: deps build
+.PHONY: build
 
 build:
-	pyinstaller -F src/main.py
+	pyinstaller -F src/main.py -n script_checker

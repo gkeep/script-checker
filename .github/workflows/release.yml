@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Release
-        uses: softprops/action-gh-release@v1
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -23,3 +21,7 @@ jobs:
           pip install -r requirements.txt pyinstaller
       - name: Build binary
         run: make build
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/script_checker

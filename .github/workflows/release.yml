@@ -17,7 +17,7 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: |
-          sudo apt-get install build-essential libx11-xcb-dev libglu1-mesa-dev qtbase5-dev -y
+          sudo apt-get install build-essential libegl-mesa0 libx11-xcb-dev libglu1-mesa-dev qtbase5-dev -y
           python -m pip install --upgrade pip
           pip install -r requirements.txt pyinstaller
       - name: Build binary

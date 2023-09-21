@@ -2,6 +2,9 @@ name: build & release a tag
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-20.04

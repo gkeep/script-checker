@@ -83,7 +83,7 @@ class SSHClient:
         })
         out.append({
             "check_type": "run",
-            "command": f"bash -x {remote_file}",
+            "command": f"bash -x -n {remote_file}",
             "output": run_command(f"bash -x '{remote_file}'")
         })
 

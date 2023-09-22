@@ -45,6 +45,7 @@ class Config:
 
     def __create_empty_config(self):
         self.ssh_key['path'] = '/home/dev/.ssh/id_rsa'
+        self.ssh_key['password'] = ''
         self.machine['username'] = 'scriptchecker'
         self.machine['address'] = 'ya.hr-link.ru'
         self.machine['port'] = '10058'

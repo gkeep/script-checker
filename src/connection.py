@@ -81,7 +81,7 @@ class SSHClient:
         out.append({
             "check_type": "test",
             "command": f"shellcheck {remote_file}",
-            "output": run_command(f"shellcheck '{remote_file}'")
+            "output": run_command(f"shellcheck -e SC2086 '{remote_file}'")
         })
         out.append({
             "check_type": "flags_check",

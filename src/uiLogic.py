@@ -148,7 +148,7 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
                 if check["check_type"] == 'flags_check':
                     data = check["output"]
                     for item in data.values():
-                        self.outputView.append(f"{item['line_index']}: {item['line']}{item['error'].rjust(144)}")
+                        self.outputView.append(f"Строка {item['line_index']}: {item['line']}{item['error']}")
                         self.outputView.append("")
                 else:
                     for line in check["output"]:

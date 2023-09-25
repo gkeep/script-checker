@@ -14,7 +14,7 @@ class Checker:
                 out[i] = {
                     "line_index": i,
                     "line": line,
-                    "error": f"^^ Нет флага(ов) {flags} в строке! Скрипт будет выполнен с ошибкой!!!"
+                    "error": f"!!! Нет флага(ов) {flags} в строке! Скрипт будет выполнен с ошибкой!!!"
                 }
 
         return out

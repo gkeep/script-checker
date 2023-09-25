@@ -145,5 +145,11 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
         self.outputView.clear()
         for check in self.data:
             if check["command"] == item:
-                for line in check["output"]:
-                    self.outputView.append(line.rstrip())
+                if check["check_type"] == 'flags_check':
+                    data = check["output"]
+                    for item in data.values():
+                        self.outputView.append(f"{item['line_index']}: {item['line']}{item['error'].rjust(144)}")
+                        self.outputView.append("")
+                else:
+                    for line in check["output"]:
+                        self.outputView.append(line.rstrip())

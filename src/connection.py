@@ -3,6 +3,7 @@ from scp import SCPClient
 import os.path
 
 from config import Config
+from localChecks import Checker
 
 
 class SSHClient:
@@ -70,6 +71,7 @@ class SSHClient:
 
         file_name = file_path.split("/")[-1]
         remote_file = "/tmp/" + file_name
+        checker = Checker(file_path)
 
         out.append({
             "check_type": "setup",
@@ -80,6 +82,11 @@ class SSHClient:
             "check_type": "test",
             "command": f"shellcheck {remote_file}",
             "output": run_command(f"shellcheck '{remote_file}'")
+        })
+        out.append({
+            "check_type": "flags_check",
+            "command": "наличие флагов docker и psql",
+            "output": checker.check_for_flags(['-c'])
         })
         out.append({
             "check_type": "run",

@@ -67,7 +67,7 @@ class SSHClient:
                 if line != "\n":
                     _stderr.append(line)
 
-            return _stdout + _stderr
+            return [_stdout, _stderr]
 
         file_name = file_path.split("/")[-1]
         remote_file = "/tmp/" + file_name
@@ -79,7 +79,7 @@ class SSHClient:
             "output": run_command(f"chmod +x '{remote_file}'")
         })
         out.append({
-            "check_type": "test",
+            "check_type": "check",
             "command": f"shellcheck {remote_file}",
             "output": run_command(f"shellcheck -e SC2086 '{remote_file}'")
         })

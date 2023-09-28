@@ -142,14 +142,34 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
 
     def list_show_output(self):
         item = self.checksList.currentItem().text()
+
+        self.outputView.setStyleSheet('background-color: #ffffff')
         self.outputView.clear()
+
         for check in self.data:
             if check["command"] == item:
-                if check["check_type"] == 'flags_check':
-                    data = check["output"]
-                    for item in data.values():
-                        self.outputView.append(f"Строка {item['line_index']}: {item['line']}{item['error']}")
-                        self.outputView.append("")
+                out = check["output"]
+                if out == [[], []] or out == {}:
+                    self.outputView.setStyleSheet('background-color: #f1fce0')
                 else:
-                    for line in check["output"]:
-                        self.outputView.append(line.rstrip())
+                    if check["check_type"] == 'flags_check':
+                        self.outputView.setStyleSheet('background-color: #fce0e0')
+                        data = out
+                        for item in data.values():
+                            self.outputView.append(f"Строка {item['line_index']}: {item['line']}{item['error']}")
+                            self.outputView.append("")
+                    elif check['check_type'] == 'check':
+                        self.outputView.setStyleSheet('background-color: #fceee0')
+                        for line in out[0]:
+                            self.outputView.append(line.rstrip())
+                    else:
+                        if out[0]:
+                            self.outputView.append("STDOUT:")
+                            for line in out[0]:
+                                self.outputView.append(line.rstrip())
+                            self.outputView.append("--------------------------------")
+
+                        if out[1]:
+                            self.outputView.append("STDERR:")
+                            for line in out[1]:
+                                self.outputView.append(line.rstrip())

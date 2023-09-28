@@ -34,8 +34,7 @@ class Config:
     def save_config(self):
         new_cfg = {'ssh_key': {}, 'machine': {}}
         for key, value in self.ssh_key.items():
-            if value != "":
-                new_cfg['ssh_key'][key] = value
+            new_cfg['ssh_key'][key] = value
         for key, value in self.machine.items():
             if value != "":
                 new_cfg['machine'][key] = value

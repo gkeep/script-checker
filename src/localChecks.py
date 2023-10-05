@@ -1,7 +1,7 @@
 class Checker:
     def __init__(self, path):
         data = None
-        with open(path, 'r') as file:
+        with open(path, 'r', encoding='utf-8') as file:
             data = file.readlines()
 
         self.data = data

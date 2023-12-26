@@ -81,12 +81,17 @@ class SSHClient:
         out.append({
             "check_type": "check",
             "command": f"shellcheck {remote_file}",
-            "output": run_command(f"shellcheck -e SC2086 '{remote_file}'")
+            "output": run_command(f"shellcheck -e SC2086,SC2143 '{remote_file}'")
         })
         out.append({
             "check_type": "flags_check",
-            "command": "наличие флагов docker и psql",
+            "command": "флаги psql",
             "output": checker.check_for_flags(['-c'])
+        })
+        out.append({
+            "check_type": "flags_check",
+            "command": "кириллица",
+            "output": checker.check_for_cyrillic_letters()
         })
         out.append({
             "check_type": "run",

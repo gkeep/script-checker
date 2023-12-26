@@ -1,4 +1,7 @@
-.PHONY: build
+version=2024.01.0
 
-build:
-	pyinstaller -F src/main.py -n script_checker
+build_linux:
+	pyinstaller --onefile src/main.py --name script_checker_$(version).bin
+
+build_linux_docker: build_linux
+	mv dist/script_checker_$(version).bin /app/builds

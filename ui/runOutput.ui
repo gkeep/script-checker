@@ -40,11 +40,6 @@
       </item>
       <item>
        <widget class="QTextEdit" name="outputView">
-        <property name="font">
-         <font>
-          <family>Monospace</family>
-         </font>
-        </property>
         <property name="lineWidth">
          <number>0</number>
         </property>

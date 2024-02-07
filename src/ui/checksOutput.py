@@ -36,9 +36,6 @@ class Ui_scriptCheckWindow(object):
 
         self.outputView = QTextEdit(self.groupBox)
         self.outputView.setObjectName(u"outputView")
-        font1 = QFont()
-        font1.setFamily(u"Monospace")
-        self.outputView.setFont(font1)
         self.outputView.setLineWidth(0)
         self.outputView.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.outputView.setUndoRedoEnabled(False)

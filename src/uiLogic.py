@@ -144,6 +144,7 @@ class ScriptCheckWindow(Ui_scriptCheckWindow):
         item = self.checksList.currentItem().text()
 
         self.outputView.setStyleSheet('background-color: #ffffff')
+        self.outputView.setStyleSheet("font-family: 'Monaco', 'Ubuntu Mono', 'Courier New', monospace;")
         self.outputView.clear()
 
         for check in self.data:

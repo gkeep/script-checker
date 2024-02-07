@@ -100,21 +100,3 @@ class SSHClient:
         })
 
         return out
-
-
-def test_connection():
-    ssh = SSHClient(Config())
-    out = ssh.test_connection()
-    assert out == 'NAME="Ubuntu"'
-
-
-def test_file_upload():
-    file = "~/Desktop/scripts/ibs-undelete.sh"
-    ssh = SSHClient(Config())
-    ssh.put_file(file_path=file)
-
-
-def test_run_file():
-    file = "~/Desktop/scripts/ibs-undelete.sh"
-    ssh = SSHClient(Config())
-    ssh.run_file(file_path=file)

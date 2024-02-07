@@ -1,5 +1,5 @@
 from config import Config
-from connection import SSHClient, SCPClient
+from connection import SSHClient
 import sys
 from PySide2.QtWidgets import QMainWindow, QApplication
 from uiLogic import UIMain

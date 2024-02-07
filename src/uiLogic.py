@@ -49,27 +49,34 @@ class UIMain(Ui_MainWindow):
 
     def __open_settings(self):
         widget = QDialog()
-        SettingsDialog(widget)
+        SettingsDialog(widget, self.conf)
         widget.show()
         widget.exec_()
 
         self.conf.load_config()
 
     def __test_connection(self):
-        output = self.ssh_client.test_connection()
-        if output == 'NAME="Ubuntu"':
+        output = self.ssh_client.connect()
+        if output == 0:
             self.testConnectionButton.setStyleSheet('background-color: green;')
             self.testConnectionButton.setText("Подключение успешно")
             return True
         self.testConnectionButton.setStyleSheet('background-color: red;')
-        self.testConnectionButton.setText(f"Подключение не успешно: {output}")
+        self.testConnectionButton.setText(f"Подключение не успешно: код ошибки {output[0]} ({output[1]})")
         return False
 
 
 class SettingsDialog(Ui_settingsDialog):
-    def __init__(self, window):
+    def __init__(self, window, old_config: Config):
+        self.conf = old_config
         self.new_cfg = Config()
         super().setupUi(window)
+
+        self.privateKeyInputBox.setText(self.conf.ssh_key["path"])
+        self.passwordInputBox.setText(self.conf.ssh_key["password"])
+        self.machinePortInputBox.setText(self.conf.machine["port"])
+        self.machineDomainInputBox.setText(self.conf.machine["address"])
+        self.usernameInputBox.setText(self.conf.machine["username"])
 
         self.saveButton.clicked.connect(lambda: self.new_cfg.save_config())
         self.machineSettingsCheckBox.stateChanged.connect(lambda: self.__enable_machine_settings())

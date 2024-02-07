@@ -13,7 +13,14 @@ class SSHClient:
     def __init__(self, cfg: Config):
         self.cfg = cfg
 
-    def connect(self, timeout: int = 3):
+    def connect(self, timeout: int = 1):
+        """
+        exit коды:
+            1 - ошибка SSH ключа
+            2 - таймаут
+            3 - неизвестно
+        """
+
         user = self.cfg.machine['username']
         host = self.cfg.machine['address']
         port = self.cfg.machine['port']
@@ -29,17 +36,15 @@ class SSHClient:
                 passphrase=self.cfg.ssh_key['password'],
                 timeout=timeout
             )
+        except AttributeError and ValueError:
+            return [1, "ошибка SSH ключа"]
+        except TimeoutError:
+            return [2, "таймаут"]
         except Exception as e:
-            return f'Could not connect - {e}'
+            return [3, e]
 
         self.client = ssh
-
-    def test_connection(self):
-        err = self.connect()
-        if err: return err
-
-        stdin, stdout, stderr = self.client.exec_command('cat /etc/os-release')
-        return stdout.readline().strip()
+        return 0
 
     def put_file(self, file_path: str):
         err = self.connect()

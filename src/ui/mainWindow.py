@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindowuoBPCi.ui'
+## Form generated from reading UI file 'mainWindoweJRnHv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.10
 ##
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
 
         self.currrentScriptLineEdit = QLineEdit(self.groupBox)
         self.currrentScriptLineEdit.setObjectName(u"currrentScriptLineEdit")
-        self.currrentScriptLineEdit.setEnabled(False)
+        self.currrentScriptLineEdit.setEnabled(True)
         sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
@@ -154,6 +154,8 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush5)
 #endif
         self.currrentScriptLineEdit.setPalette(palette)
+        self.currrentScriptLineEdit.setEchoMode(QLineEdit.Normal)
+        self.currrentScriptLineEdit.setReadOnly(True)
 
         self.verticalLayout_2.addWidget(self.currrentScriptLineEdit)
 

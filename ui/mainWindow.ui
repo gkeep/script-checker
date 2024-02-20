@@ -193,7 +193,7 @@
            <item>
             <widget class="QLineEdit" name="currrentScriptLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -405,6 +405,9 @@
                 </colorrole>
                </disabled>
               </palette>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::NoEcho</enum>
              </property>
             </widget>
            </item>

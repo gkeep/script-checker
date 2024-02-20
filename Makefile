@@ -1,4 +1,4 @@
-version=2024.2.0
+version=2024.2.1
 
 build_linux:
 	pyinstaller --onefile src/main.py --name script_checker_$(version).bin

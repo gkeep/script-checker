@@ -55,7 +55,7 @@ class SSHClient:
         abs_path = os.path.expanduser(file_path)
         scp.put(abs_path, remote_path="/tmp")
 
-    def run_file(self, file_path: str):
+    def run_file(self, file_path: str, postgres_container: str):
         err = self.connect()
         if err: return err
 
@@ -77,6 +77,9 @@ class SSHClient:
         file_name = file_path.split("/")[-1]
         remote_file = "/tmp/" + file_name
         checker = Checker(file_path)
+
+        if postgres_container != "ekd-postgresql":
+            run_command(f"sed -i s/ekd-postgresql/ekd-postgresql-65/g {remote_file}")
 
         out.append({
             "check_type": "setup",

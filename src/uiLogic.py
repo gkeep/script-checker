@@ -40,8 +40,13 @@ class UIMain(Ui_MainWindow):
         if self.__test_connection() is False:
             return
 
+        postgres_container = "ekd-postgresql"
+        match self.releaseComboBox.currentText():
+            case '65':
+                postgres_container = "ekd-postgresql-65"
+
         self.ssh_client.put_file(self.script_path)
-        out = self.ssh_client.run_file(self.script_path)
+        out = self.ssh_client.run_file(self.script_path, postgres_container)
         widget = QDialog()
         ScriptCheckWindow(widget, out)
         widget.show()

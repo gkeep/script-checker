@@ -1,9 +1,9 @@
 import os.path
 import pyclip
-from PySide2.QtCore import QRegExp
-from PySide2.QtGui import QRegExpValidator
 
-from PySide2.QtWidgets import QDialogButtonBox, QFileDialog, QDialog
+from PySide6.QtWidgets import QDialogButtonBox, QFileDialog, QDialog
+from PySide6.QtGui import QRegularExpressionValidator
+from PySide6.QtCore import QRegularExpression
 
 from ui.mainWindow import Ui_MainWindow
 from ui.checksOutput import Ui_scriptCheckWindow
@@ -50,13 +50,13 @@ class UIMain(Ui_MainWindow):
         widget = QDialog()
         ScriptCheckWindow(widget, out)
         widget.show()
-        widget.exec_()
+        widget.exec()
 
     def __open_settings(self):
         widget = QDialog()
         SettingsDialog(widget, self.conf)
         widget.show()
-        widget.exec_()
+        widget.exec()
 
         self.conf.load_config()
 
@@ -87,7 +87,7 @@ class SettingsDialog(Ui_settingsDialog):
         self.machineSettingsCheckBox.stateChanged.connect(lambda: self.__enable_machine_settings())
         self.selectPrivateKeyButton.clicked.connect(lambda: self.__select_private_key())
         self.copyPublicKeyButton.clicked.connect(lambda: self.__copy_public_key())
-        self.machinePortInputBox.setValidator(QRegExpValidator(QRegExp("\d+")))
+        self.machinePortInputBox.setValidator(QRegularExpressionValidator(QRegularExpression("\d+")))
         self.saveButton.button(QDialogButtonBox.Save).setText("Сохранить")
 
         self.passwordInputBox.editingFinished.connect(

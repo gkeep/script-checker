@@ -8,9 +8,9 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
-from PySide2.QtWidgets import *  # type: ignore
+from PySide6.QtCore import *  # type: ignore
+from PySide6.QtGui import *  # type: ignore
+from PySide6.QtWidgets import *  # type: ignore
 
 
 class Ui_MainWindow(object):
@@ -111,49 +111,6 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.currrentScriptLineEdit.sizePolicy().hasHeightForWidth())
         self.currrentScriptLineEdit.setSizePolicy(sizePolicy2)
         self.currrentScriptLineEdit.setMaximumSize(QSize(16777215, 30))
-        palette = QPalette()
-        brush = QBrush(QColor(0, 0, 0, 255))
-        brush.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        brush1 = QBrush(QColor(239, 239, 239, 255))
-        brush1.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Button, brush1)
-        brush2 = QBrush(QColor(202, 202, 202, 255))
-        brush2.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Midlight, brush2)
-        brush3 = QBrush(QColor(159, 159, 159, 255))
-        brush3.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Dark, brush3)
-        palette.setBrush(QPalette.Active, QPalette.Text, brush)
-        brush4 = QBrush(QColor(255, 255, 255, 255))
-        brush4.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Base, brush4)
-        brush5 = QBrush(QColor(0, 0, 0, 128))
-        brush5.setStyle(Qt.SolidPattern)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush5)
-#endif
-        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Inactive, QPalette.Midlight, brush2)
-        palette.setBrush(QPalette.Inactive, QPalette.Dark, brush3)
-        palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.Base, brush4)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush5)
-#endif
-        brush6 = QBrush(QColor(190, 190, 190, 255))
-        brush6.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Disabled, QPalette.Midlight, brush2)
-        palette.setBrush(QPalette.Disabled, QPalette.Dark, brush2)
-        palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
-        palette.setBrush(QPalette.Disabled, QPalette.Base, brush4)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush5)
-#endif
-        self.currrentScriptLineEdit.setPalette(palette)
         self.currrentScriptLineEdit.setEchoMode(QLineEdit.Normal)
         self.currrentScriptLineEdit.setReadOnly(True)
 

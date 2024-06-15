@@ -8,23 +8,23 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *  # type: ignore
-from PySide2.QtGui import *  # type: ignore
-from PySide2.QtWidgets import *  # type: ignore
+from PySide6.QtCore import *  # type: ignore
+from PySide6.QtGui import *  # type: ignore
+from PySide6.QtWidgets import *  # type: ignore
 
 
 class Ui_settingsDialog(object):
     def setupUi(self, settingsDialog):
         if not settingsDialog.objectName():
             settingsDialog.setObjectName(u"settingsDialog")
-        settingsDialog.resize(620, 520)
+        settingsDialog.resize(650, 520)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(settingsDialog.sizePolicy().hasHeightForWidth())
         settingsDialog.setSizePolicy(sizePolicy)
-        settingsDialog.setMinimumSize(QSize(620, 520))
-        settingsDialog.setMaximumSize(QSize(620, 520))
+        settingsDialog.setMinimumSize(QSize(650, 520))
+        settingsDialog.setMaximumSize(QSize(650, 520))
         self.verticalLayout = QVBoxLayout(settingsDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.groupBox = QGroupBox(settingsDialog)

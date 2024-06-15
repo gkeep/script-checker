@@ -1,7 +1,7 @@
 from config import Config
 from connection import SSHClient
 import sys
-from PySide2.QtWidgets import QMainWindow, QApplication
+from PySide6.QtWidgets import QMainWindow, QApplication
 from uiLogic import UIMain
 
 if __name__ == '__main__':
@@ -13,4 +13,4 @@ if __name__ == '__main__':
     content = UIMain(MainWindow, ssh_client, config)
 
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
